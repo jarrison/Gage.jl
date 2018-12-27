@@ -30,7 +30,6 @@ clang_args = clang_extraargs,
 header_wrapped = wrap_header,
 header_library = lib_file,
 header_outputfile = output_file)
-wc.options.ismutable=true
 run(wc)
 
 # @show Clang.wrap_c.debug_cursors
