@@ -27,6 +27,11 @@ function getconfig_chan(sys::GageCard)
 end
 
 sys = GageCard()
+
 acqconfig = getconfig_chan(sys)
+trigger = getconfig_trig(sys)
+channel = getconfig_chan(sys)
 
 free(sys)
+
+println(trigger.i32Source)

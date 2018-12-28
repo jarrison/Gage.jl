@@ -163,27 +163,36 @@ end
 ##########################################
 function CsGetAcq(hSystem::CSHANDLE, nConfig::Integer)
     pData = CSACQUISITIONCONFIG()
-    ccall((:CsGet, :CsSsm), Int32,
+    err = ccall((:CsGet, :CsSsm), Int32,
           (CSHANDLE, Int32, Int32, Ref{CSACQUISITIONCONFIG}),
           hSystem, CS_ACQUISITION, nConfig, pData)
-
-    return pData
+    if err < 0
+        return error(CsGetErrorString(err))
+    else
+        return pData
+    end
 end
 
 function CsGetTrig(hSystem::CSHANDLE, nConfig::Integer)
     pData = CSTRIGGERCONFIG()
-    ccall((:CsGet, :CsSsm), Int32,
+    err = ccall((:CsGet, :CsSsm), Int32,
           (CSHANDLE, Int32, Int32, Ref{CSTRIGGERCONFIG}),
           hSystem, CS_TRIGGER, nConfig, pData)
-
-    return pData
+    if err < 0
+        return error(CsGetErrorString(err))
+    else
+        return pData
+    end
 end
 
 function CsGetChan(hSystem::CSHANDLE, nConfig::Integer)
     pData = CSCHANNELCONFIG()
-    ccall((:CsGet, :CsSsm), Int32,
+    err = ccall((:CsGet, :CsSsm), Int32,
           (CSHANDLE, Int32, Int32, Ref{CSCHANNELCONFIG}),
           hSystem, CS_CHANNEL, nConfig, pData)
-
-    return pData
+    if err < 0
+        return error(CsGetErrorString(err))
+    else
+        return pData
+    end
 end

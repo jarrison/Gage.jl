@@ -453,7 +453,7 @@ mutable struct CSCHANNELCONFIG
     u32Filter::uInt32
     i32DcOffset::int32
     i32Calib::int32
-    CSCHANNELCONFIG() = (new(sizeof(CSCHANNELCONFIG),0,0,0,0,0,0,0))
+    CSCHANNELCONFIG() = (new(sizeof(CSCHANNELCONFIG),1,0,0,0,0,0,0))
 end
 
 const PCSCHANNELCONFIG = Ptr{CSCHANNELCONFIG}
@@ -478,7 +478,7 @@ mutable struct CSTRIGGERCONFIG
     i32Value2::int32
     u32Filter::uInt32
     u32Relation::uInt32
-    CSTRIGGERCONFIG() = (new(sizeof(CSTRIGGERCONFIG),0,0,0,0,0,0,0,0,0,0,0))
+    CSTRIGGERCONFIG() = (new(sizeof(CSTRIGGERCONFIG),1,0,0,0,0,0,0,0,0,0,0))
 end
 
 const PCSTRIGGERCONFIG = Ptr{CSTRIGGERCONFIG}
